@@ -4,13 +4,15 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+      Verze: {{ global.version }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the
-    <a target="_blank" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+	<p>Loaded: {{ hermes.loaded }}</p>
+   <button ion-button full (click)="hermes.loadXML()">Nacti XML</button>
+   <button ion-button full (click)="openLocalSpz()">Seznam SPZ</button>
+   <button ion-button full (click)="hermes.showData()">ShowData</button>
+
 </ion-content>

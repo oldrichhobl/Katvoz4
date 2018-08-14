@@ -19,7 +19,23 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Katvoz',
+      url: '/Katvoz',
+      icon: 'car'
+    },
+    {
+      title: 'Settings',
+      url: '/Settings',
+      icon: 'hammer'
+    },
+    {
+      title: 'About',
+      url: '/About',
+      icon: 'help'
     }
+
   ];
 
   constructor(

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalProvider } from "../global/global";
+import { HermesProvider } from '../hermes';
 
 @Component({
   selector: 'app-list',
@@ -20,17 +22,19 @@ export class ListPage implements OnInit {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
+  constructor(public global: GlobalProvider,
+                public hermes: HermesProvider) {
     for (let i = 1; i < 11; i++) {
       this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
+        title: 'SPZ ' + i,
+        note: 'item #' + global.version,
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
   }
 
   ngOnInit() {
+    console.log(" ngOnInit na list.page.ts")
   }
   // add back when alpha.4 is out
   // navigate(item) {

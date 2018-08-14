@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GlobalProvider } from "../global/global";
+import { HermesProvider } from '../hermes';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+   constructor( public global: GlobalProvider,
+   	            public hermes: HermesProvider) {}
+
+   openLocalSpz() {
+     console.log("openLocalSpz")
+
+   
+}
 }
