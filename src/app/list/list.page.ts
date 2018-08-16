@@ -24,10 +24,10 @@ export class ListPage implements OnInit {
   public items: Array<{ title: string; note: string; icon: string }> = [];
   constructor(public global: GlobalProvider,
                 public hermes: HermesProvider) {
-     console.log(" constructor na list.page.ts")
+     console.log(" constructor na list.page.ts " + hermes.items.length )
     for (let i = 1; i < 11; i++) {
       this.items.push({
-        title: 'RZ ' + hermes.items[i].spz,
+        title: hermes.items[i].spz,
         note: 'item #' + global.version,
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
