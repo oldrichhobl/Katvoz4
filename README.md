@@ -2,7 +2,8 @@
 Zobrazení katalogu vozidel na mobilu. Aplikace IONIC 4
 ## zalozeno: 2018-07-20  
 
-## denicek:##
+denicek:
+---------
 Doma 2018-08-14  23:30  
 V Liticich 2018-08-16   verze 1.0.4  
 Doma 2018-08-14 12:50   verze 1.0.5  
