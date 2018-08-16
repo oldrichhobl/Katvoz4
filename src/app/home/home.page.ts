@@ -10,7 +10,8 @@ import { HermesProvider } from '../hermes';
 export class HomePage {
 
    constructor( public global: GlobalProvider,
-   	            public hermes: HermesProvider) {}
+   	            public hermes: HermesProvider)
+   	             {}
 
    openLocalSpz() {
      console.log("openLocalSpz")

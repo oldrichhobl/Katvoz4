@@ -18,6 +18,8 @@ import { GlobalProvider } from "./global/global";
 export class HermesProvider {
   public loaded: any = false; 
   public XMLdata: any;
+  public items: any;
+
 
   XMLstring: string;
   Parser : any;
@@ -37,7 +39,7 @@ export class HermesProvider {
     console.log("hermes.ts loadXML " + this.locDefExpKatvoz);
     this.http.get(this.locKatvozList, {responseType: 'text'}).subscribe((res) => {
        console.log("NACTENO " + this.locDefExpKatvoz);
-       console.dir(res);
+       // console.dir(res);
        this.XMLstring = res;
        // domparser
        this.Parser = new (window as any).DOMParser();
@@ -47,16 +49,43 @@ export class HermesProvider {
        //
        this.events.publish('data:loaded', 'Data', Date.now());
        });
-  };
+  }
   
   public showData()
   {
     var xsltProcessor=new (window as any).XSLTProcessor();
     console.dir(this.XMLdata);
     console.dir(xsltProcessor);
-  };
+  }
+
   readStatus()
   {
     console.log('HermesProvider readStatus server: '+ this.global.server);	
   }
+
+  selectNode(ss)
+  {
+    console.log("selectNode : " + ss);
+    // var nod = this.myData.XMLdata.selectElements("//RECS/R");
+    var nod = this.XMLdata.evaluate(ss, this.XMLdata, null, XPathResult.ANY_TYPE,null); 
+    console.log("ResultType = " + nod.resultType);
+    console.dir(nod);
+    this.items = [];
+    var i = 2;
+    var actualSpan = nod.iterateNext ();
+    console.dir(actualSpan);
+    console.log(actualSpan.getElementsByTagName("SPZ")[0].innerHTML);
+    while (actualSpan) {
+      this.items.push({
+         spz: actualSpan.getElementsByTagName("SPZ")[0].innerHTML,
+         //spz: 'PM-' + actualSpan.evaluate('SPZ', this.hermes.XMLdata, null, XPathResult.ANY_TYPE,null).value;,
+         note: actualSpan.getElementsByTagName("DZ")[0].attributes['n'].value,
+         // icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+      });
+      i++;
+      actualSpan = nod.iterateNext ()
+    }
+
+  }
+
 }

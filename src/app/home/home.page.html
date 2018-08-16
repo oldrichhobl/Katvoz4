@@ -12,7 +12,9 @@
 <ion-content padding>
 	<p>Loaded: {{ hermes.loaded }}</p>
    <button ion-button full (click)="hermes.loadXML()">Nacti XML</button>
+   <button ion-button full (click)="hermes.selectNode('//RECS/REC')">SelectNode</button>
+
    <button ion-button full (click)="openLocalSpz()">Seznam SPZ</button>
    <button ion-button full (click)="hermes.showData()">ShowData</button>
-
+ 
 </ion-content>
