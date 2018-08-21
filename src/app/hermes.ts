@@ -18,14 +18,18 @@ import { GlobalProvider } from "./global/global";
 export class HermesProvider {
   public loaded: any = false; 
   public XMLdata: any;
+  public XSLdata: any;
   public items: any;
+  public resultDocument: any;
 
 
   XMLstring: string;
+  XSLstring: string;
   Parser : any;
   
   locDefExpKatvoz:string = './assets/hermes/defExpKatvoz.xml';
   locKatvozList:string   = './assets/hermes/katvozlist.xml';
+  locXSL:string          = './assets/hermes/convert.xsl';
 
     
   constructor(public http: HttpClient, public events: Events,
@@ -53,11 +57,41 @@ export class HermesProvider {
        });
   }
   
+// Nacteni XSL 
+  loadXSL() {
+    console.log("hermes.ts loadXSL " + this.locXSL);
+    this.http.get(this.locXSL, {responseType: 'text'}).subscribe((res) => {
+       console.log("NACTENO " + this.locXSL);
+       // console.dir(res);
+       this.XSLstring = res;
+       // domparser
+       this.Parser = new (window as any).DOMParser();
+       this.XSLdata = this.Parser.parseFromString(this.XSLstring, "text/xml");
+       //  console.dir(this.XMLdata);
+       //  this.loaded = true;   // mame nacteno
+       //
+       //  this.selectNode('//RECS/REC');
+       //
+       //  this.events.publish('data:loaded', 'Data', Date.now());
+       });
+  }
+
+
   public showData()
   {
     var xsltProcessor=new (window as any).XSLTProcessor();
-    console.dir(this.XMLdata);
+    console.dir(this.XSLdata);
     console.dir(xsltProcessor);
+    
+        xsltProcessor.importStylesheet(this.XSLdata);   
+        xsltProcessor.setParameter(null, "param1", "WAPKA");
+        // xsltProcessor.setParameter(null, "param2", p2);
+        this.resultDocument = xsltProcessor.transformToFragment(this.XMLdata,document); 
+        console.dir(this.resultDocument);
+
+
+
+
   }
 
   readStatus()

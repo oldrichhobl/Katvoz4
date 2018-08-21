@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Settings</ion-title>
+    <ion-title>
+    	Nastavení   
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+<ion-item>
+  <ion-label>Hermes:</ion-label>	
+  <ion-input required type="text" placeholder="http://192.168.0.108"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Jméno:</ion-label>	
+  <ion-input required type="text" placeholder="jméno v DMD"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Heslo:</ion-label>	
+  <ion-input required type="password" inputmode="password" placeholder="heslo"></ion-input>
+</ion-item>
 </ion-content>

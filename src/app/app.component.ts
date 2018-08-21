@@ -76,6 +76,8 @@ export class AppComponent {
       this.storage.ready().then(() => {
         this.global.readGlobals(); //??? az po nacteni globalsu ??
         this.hermes.loadXML();     // uvnitr je i selectNode() 
+        // this.hermes.loadXSL();     //  
+
         this.hermes.readStatus();
       });
 

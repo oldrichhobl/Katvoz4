@@ -12,6 +12,7 @@ export class DetailPage implements OnInit {
 
   public autoNod: any;
   public auto: any;
+  public autoStr: any;
  
   constructor(  private route: ActivatedRoute, 
                 public global: GlobalProvider,
@@ -28,8 +29,13 @@ export class DetailPage implements OnInit {
     this.autoNod = this.hermes.getAuto(todoId);
     this.auto = 
         {
-        	spz: this.autoNod.getElementsByTagName("SPZ")[0].innerHTML
+        	spz: this.autoNod.getElementsByTagName("SPZ")[0].innerHTML,
+        	dz:  this.autoNod.getElementsByTagName("DZ")[0].attributes['n'].value
         }
+    this.autoStr = "<br/> <h1>H1</h1> <br/> textik"; 
+
+    let Card = document.getElementById("card");
+    Card.appendChild(this.hermes.resultDocument);   
   }
  
 

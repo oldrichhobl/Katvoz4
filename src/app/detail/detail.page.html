@@ -1,7 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-    	Detaill 
       {{ auto?.spz }}  
     </ion-title>
     <ion-buttons slot="start">
@@ -11,8 +10,17 @@
 </ion-header>
  
 <ion-content padding>
-  <p>
-     <!--   {{ auto?.description }}  -->
-     ddetail
-  </p>
+ <ion-card>
+  <ion-card-title>Další</ion-card-title>
+  <ion-card-content>
+   {{ auto?.dz }}
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-content id="card">
+  </ion-card-content>
+</ion-card>
+
+
 </ion-content>
