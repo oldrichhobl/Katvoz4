@@ -47,6 +47,8 @@ export class HermesProvider {
        //  console.dir(this.XMLdata);
        this.loaded = true;   // mame nacteno
        //
+       this.selectNode('//RECS/REC');
+       //
        this.events.publish('data:loaded', 'Data', Date.now());
        });
   }
@@ -60,7 +62,20 @@ export class HermesProvider {
 
   readStatus()
   {
-    console.log('HermesProvider readStatus server: '+ this.global.server);	
+    console.log('HermesProvider readStatus server: '+ this.global.server);  
+  }
+  getAuto(id)
+  {
+    id++;
+    console.log('HermesProvider getAuto server: '+ this.global.server);  
+    var nod = this.XMLdata.evaluate('//RECS/REC['+id+']', this.XMLdata, null, XPathResult.ANY_TYPE,null); 
+    console.log("ResultType = " + nod.resultType);
+    console.dir(nod);
+    var actualSpan = nod.iterateNext ();
+    //let auto = {
+    //  spz: actualSpan.getElementsByTagName("SPZ")[0].innerHTML
+    // }
+    return actualSpan;
   }
 
   selectNode(ss)

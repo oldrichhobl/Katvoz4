@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'Katvoz', loadChildren: './katvoz/katvoz.module#KatvozPageModule' },
   { path: 'About', loadChildren: './about/about.module#AboutPageModule' },
-  { path: 'Settings', loadChildren: './settings/settings.module#SettingsPageModule' }
+  { path: 'Settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' }
 ];
 
 @NgModule({

@@ -37,7 +37,13 @@ export class AppComponent {
       title: 'About',
       url: '/About',
       icon: 'help'
+    },
+    {
+      title: 'Detail',
+      url: '/detail',
+      icon: 'home'
     }
+
 
   ];
 
@@ -69,7 +75,7 @@ export class AppComponent {
       // nacteni zapamatovanych dat , globalu, pristup na herma 
       this.storage.ready().then(() => {
         this.global.readGlobals(); //??? az po nacteni globalsu ??
-        this.hermes.loadXML()
+        this.hermes.loadXML();     // uvnitr je i selectNode() 
         this.hermes.readStatus();
       });
 

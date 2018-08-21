@@ -21,14 +21,15 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor(public global: GlobalProvider,
+  public items: Array<{ title: string; note: string; id:number; icon: string }> = [];
+  constructor(  public global: GlobalProvider,
                 public hermes: HermesProvider) {
-     console.log(" constructor na list.page.ts " + hermes.items.length )
+    console.log(" constructor na list.page.ts " + hermes.items.length )
     for (let i = 1; i < hermes.items.length; i++) {
       this.items.push({
         title: hermes.items[i].spz,
         note: ' #' + global.version,
+        id: i,
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
