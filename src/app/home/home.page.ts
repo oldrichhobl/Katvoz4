@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GlobalProvider } from "../global/global";
 import { HermesProvider } from '../hermes';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,8 +15,8 @@ export class HomePage {
    	             {}
 
    openLocalSpz() {
-     console.log("openLocalSpz")
+     console.log("openLocalSpz")  
+   }
 
-   
-}
+
 }

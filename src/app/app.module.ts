@@ -15,6 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { GlobalProvider } from "./global/global";
 import { HermesProvider } from './hermes';
+import { ThemeService } from './theme.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +37,8 @@ import { HermesProvider } from './hermes';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GlobalProvider,
-    HermesProvider
+    HermesProvider,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })

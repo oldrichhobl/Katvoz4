@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "./global/global";
 import { HermesProvider } from "./hermes";
+import { ThemeService } from './theme.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -53,7 +55,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     public storage: Storage,
     public global: GlobalProvider,
-    public hermes: HermesProvider
+    public hermes: HermesProvider,
+    private theme: ThemeService
   ) 
   {
     this.initializeApp();
@@ -76,7 +79,11 @@ export class AppComponent {
       this.storage.ready().then(() => {
         this.global.readGlobals(); //??? az po nacteni globalsu ??
         this.hermes.loadXML();     // uvnitr je i selectNode() 
-        // this.hermes.loadXSL();     //  
+        this.hermes.loadXSL();     //  
+
+        this.storage.get('theme').then(cssText => {
+                this.theme.setGlobalCSS(cssText);
+              });
 
         this.hermes.readStatus();
       });

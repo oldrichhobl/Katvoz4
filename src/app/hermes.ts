@@ -77,14 +77,14 @@ export class HermesProvider {
   }
 
 
-  public showData()
+  public showData(spz)
   {
     var xsltProcessor=new (window as any).XSLTProcessor();
     console.dir(this.XSLdata);
     console.dir(xsltProcessor);
     
         xsltProcessor.importStylesheet(this.XSLdata);   
-        xsltProcessor.setParameter(null, "param1", "WAPKA");
+        xsltProcessor.setParameter(null, "param1", spz);
         // xsltProcessor.setParameter(null, "param2", p2);
         this.resultDocument = xsltProcessor.transformToFragment(this.XMLdata,document); 
         console.dir(this.resultDocument);

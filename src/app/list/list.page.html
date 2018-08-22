@@ -14,7 +14,7 @@
     <ion-item  [href]="'/detail?id=' + item.id" detail="true" *ngFor="let item of items">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
         {{item.title}}
-      <div class="item-note" slot="end">
+        <div class="item-note" slot="end">
         {{item.note}}
       </div>
     </ion-item>
