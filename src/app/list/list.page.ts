@@ -21,6 +21,7 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
+  searchTerm: string = '';
   public items: Array<{ title: string; note: string; id:number; icon: string }> = [];
   constructor(  public global: GlobalProvider,
                 public hermes: HermesProvider) {
@@ -37,6 +38,12 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
     console.log(" ngOnInit na list.page.ts")
+  }
+
+  setFilteredItems() {
+ 
+        this.items = this.hermes.filterItems(this.searchTerm);
+ 
   }
   // add back when alpha.4 is out
   // navigate(item) {

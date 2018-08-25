@@ -19,12 +19,13 @@ export class HermesProvider {
   public loaded: any = false; 
   public XMLdata: any;
   public XSLdata: any;
-  public items: any;
-  public resultDocument: any;
-
-
   XMLstring: string;
   XSLstring: string;
+  
+  public items: any;
+
+  public resultDocument: any;
+
   Parser : any;
   
   locDefExpKatvoz:string = './assets/hermes/defExpKatvoz.xml';
@@ -126,6 +127,7 @@ export class HermesProvider {
     console.log(actualSpan.getElementsByTagName("SPZ")[0].innerHTML);
     while (actualSpan) {
       this.items.push({
+        title: actualSpan.getElementsByTagName("SPZ")[0].innerHTML,
         spz: actualSpan.getElementsByTagName("SPZ")[0].innerHTML,
          //spz: 'PM-' + actualSpan.evaluate('SPZ', this.hermes.XMLdata, null, XPathResult.ANY_TYPE,null).value;,
         note: actualSpan.getElementsByTagName("DZ")[0].attributes['k'].value,
@@ -136,5 +138,14 @@ export class HermesProvider {
     }
 
   }
+
+    filterItems(searchTerm){
+ 
+        return this.items.filter((item) => {
+            return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        });    
+ 
+    }
+ 
 
 }

@@ -4,12 +4,15 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      List S
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" animated ></ion-searchbar>
+
   <ion-list>
     <ion-item  [href]="'/detail?id=' + item.id" detail="true" *ngFor="let item of items">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
