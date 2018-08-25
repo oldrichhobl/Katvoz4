@@ -28,7 +28,7 @@ export class ListPage implements OnInit {
     for (let i = 1; i < hermes.items.length; i++) {
       this.items.push({
         title: hermes.items[i].spz,
-        note: ' #' + global.version,
+        note: ' >' + hermes.items[i].note,
         id: i,
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });

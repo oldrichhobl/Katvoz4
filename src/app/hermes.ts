@@ -126,9 +126,9 @@ export class HermesProvider {
     console.log(actualSpan.getElementsByTagName("SPZ")[0].innerHTML);
     while (actualSpan) {
       this.items.push({
-         spz: actualSpan.getElementsByTagName("SPZ")[0].innerHTML,
+        spz: actualSpan.getElementsByTagName("SPZ")[0].innerHTML,
          //spz: 'PM-' + actualSpan.evaluate('SPZ', this.hermes.XMLdata, null, XPathResult.ANY_TYPE,null).value;,
-         note: actualSpan.getElementsByTagName("DZ")[0].attributes['n'].value,
+        note: actualSpan.getElementsByTagName("DZ")[0].attributes['k'].value,
          // icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
       i++;
